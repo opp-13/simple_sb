@@ -9,6 +9,7 @@ pipeline {
         GITEMAIL = 'john_sungho@naver.com' 
         GITWEBADD = 'https://github.com/opp-13/simple_sb.git'
         GITSSHADD = 'git@github.com/opp-13/simple_sb.git'
+        GITARGOMANI = 'git@github.com/opp-13/argo-manifest-test.git'
         GITCREDENTIAL = 'git_cre'
         
         DOCKERHUB = 'opp13/spring'
@@ -81,16 +82,16 @@ pipeline {
         }
         stage('EKS manifest file update') {
             steps {
-                git credentialsId: GITCREDENTIAL, url: GITSSHADD, branch: 'main'
+                git credentialsId: GITCREDENTIAL, url: GITARGOMANI, branch: 'main'
                 sh "git config --global user.email ${GITEMAIL}"
                 sh "git config --global user.name ${GITNAME}"
-                sh "sed -i 's@${DOCKERHUB}:.*@${DOCKERHUB}:${currentBuild.number}@g' fast.yml"
+                sh "sed -i 's@${DOCKERHUB}:.*@${DOCKERHUB}:${currentBuild.number}@g' argo-deploy.yml"
 
                 sh "git add ."
                 sh "git branch -M main"
                 sh "git commit -m 'fixed tag ${currentBuild.number}'"
                 sh "git remote remove origin"
-                sh "git remote add origin ${GITSSHADD}"
+                sh "git remote add origin ${GITARGOMANI}"
                 sh "git push origin main"
             }
             post {
