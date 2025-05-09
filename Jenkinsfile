@@ -8,8 +8,8 @@ pipeline {
         GITNAME = 'opp-13'            
         GITEMAIL = 'john_sungho@naver.com' 
         GITWEBADD = 'https://github.com/opp-13/simple_sb.git'
-        GITSSHADD = 'git@github.com/opp-13/simple_sb.git'
-        GITARGOMANI = 'git@github.com/opp-13/argo-manifest-test.git'
+        GITSSHADD = 'git@github.com/opp-13:simple_sb.git'
+        GITARGOMANI = 'git@github.com/opp-13:argo-manifest-test.git'
         GITCREDENTIAL = 'git_cre'
         
         DOCKERHUB = 'opp13/spring'
