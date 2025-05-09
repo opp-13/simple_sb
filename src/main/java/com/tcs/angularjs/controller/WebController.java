@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class WebController {
     @RequestMapping(value="/",method = RequestMethod.GET)
     public String homepage(){
-        return "index";
+        return "프로젝트 조 알려주세요!";
     }
 }
