@@ -119,21 +119,6 @@ pipeline {
             }
         }
 
-        stage('springboot app build') {
-            steps {
-                sh "mvn clean package"
-            }
-
-            post {
-                failure {
-                    sh "echo mvn packaging fail"
-                }
-                success {
-                    sh "echo mvn packaging success"
-                }
-            }
-        }
-
     }
     
 }
