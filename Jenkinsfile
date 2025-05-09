@@ -16,22 +16,6 @@ pipeline {
     }
 
     stages {
-        stage('start') {
-            steps {
-                sh "echo hello jenkins!!!"
-            }
-            post {
-                failure {
-                    sh "echo failed"
-                }
-                success {
-                    sh "echo success"
-                }
-            }
-        }
-    }
-
-    stages {
         stage('Checkout Github') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [],
